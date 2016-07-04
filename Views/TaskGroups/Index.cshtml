@@ -4,59 +4,19 @@
     ViewBag.Title = "My tasks";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
-
-</table>
-
-<script>
-    function gotoAddTaskPage(id) {
-        window.location = '/Tasks/Create?groupId=' + id;
-    };
-
-    function gotoDeleteTaskPage(id) {
-        window.location = '/Tasks/Delete?id=' + id;
-    };
-</script>
-
-<div class="row">
+<div class="row" style="padding-top: 50px">
     @foreach (var group in Model)
     {
         <div id="@("group-" + group.ID)" class="col-md-4">
             <div class="row">
                 <div class="col-md-8">
                     <h2>
-                        @Html.ActionLink(@group.Name, "Details", new { id = group.ID }, new { @style = "color: black" })
+                        @Html.ActionLink(@group.Name, "Details", new {id = group.ID}, new {@style = "color: black"})
                     </h2>
                 </div>
                 <div class="col-md-4">
                     <div class="container">
-                        @Html.ActionLink("X", "Delete", new { id = group.ID }, new { @class = "btn btn-danger", @style = "color:white" })
+                        @Html.ActionLink("X", "Delete", new {id = group.ID}, new {@class = "btn btn-danger", @style = "color:white"})
                     </div>
                 </div>
             </div>
@@ -73,8 +33,19 @@
         </div>
     }
 </div>
+
 <div class="row text-center" style="padding-top: 50px">
     @Html.ActionLink("+ Add group", "Create", null, new { @class = "btn btn-primary" })
 </div>
 
-<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet"/>
+
+<script>
+    function gotoAddTaskPage(id) {
+        window.location = '/Tasks/Create?groupId=' + id;
+    };
+
+    function gotoDeleteTaskPage(id) {
+        window.location = '/Tasks/Delete?id=' + id;
+    };
+</script>

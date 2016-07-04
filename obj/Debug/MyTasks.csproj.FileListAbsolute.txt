@@ -90,3 +90,6 @@ C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\bin\ko
 C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\bin\ru\System.Spatial.resources.dll
 C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\obj\Debug\MyTasks.Migrations.InitialCreate.resources
+C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\obj\Debug\MyTasks.csproj.GenerateResource.Cache
+C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\obj\Debug\MyTasks.Migrations.AddUserModel.resources
