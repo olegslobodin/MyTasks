@@ -25,14 +25,24 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.ActionLink("Edit", "Edit", new {id = item.ID}) |
+                @Html.ActionLink("Details", "Details", new {id = item.ID}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.ID})
             </td>
         </tr>
     }
 
 </table>
+
+<script>
+    function gotoAddTaskPage(id) {
+        window.location = '/Tasks/Create?groupId=' + id;
+    };
+
+    function gotoDeleteTaskPage(id) {
+        window.location = '/Tasks/Delete?id=' + id;
+    };
+</script>
 
 <div class="row">
     @foreach (var group in Model)
@@ -47,14 +57,14 @@
             @foreach (var task in group.Tasks)
             {
                 <div id="@("task-" + task.ID)" class="row">
-                    @task.Name
+                    <button type="button" class="btn btn-danger btn-circle" onclick="gotoDeleteTaskPage(@task.ID)"><i class="glyphicon glyphicon-remove"></i></button>
+                    <a href="@("/Tasks/Details?id=" + task.ID)">@task.Name</a>
                 </div>
             }
 
-            <form action="/Tasks/Create">
-                <input type="text" name="groupId" value="@group.ID" />
-                <button type="submit">+ Add Task</button>
-            </form>
+            <button onclick="gotoAddTaskPage(@group.ID)">+ Add Task</button>
         </div>
     }
 </div>
+
+<link href="~/Content/Site.css" rel="stylesheet" />

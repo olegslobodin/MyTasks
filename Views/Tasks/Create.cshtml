@@ -4,13 +4,13 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create for</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Tasks", new { groupId = @Request.Params["groupId"] }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Task</h4>
         <hr />

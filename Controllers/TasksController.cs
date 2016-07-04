@@ -47,11 +47,14 @@ namespace MyTasks.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Content")] Task task)
+        public ActionResult Create([Bind(Include = "ID,Name,Content")] Task task, string groupId)
         {
             if (ModelState.IsValid)
             {
+                int id = Int32.Parse(groupId);
                 db.Tasks.Add(task);
+                var group = db.TaskGroups.First(g => g.ID == id);
+                group.Tasks.Add(task);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
