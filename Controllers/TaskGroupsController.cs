@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MyTasks.DataAccess;
 using MyTasks.Models;
+using WebGrease.Css.Extensions;
 
 namespace MyTasks.Controllers
 {
@@ -113,6 +114,7 @@ namespace MyTasks.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TaskGroup taskGroup = db.TaskGroups.Find(id);
+            db.Tasks.RemoveRange(taskGroup.Tasks);
             db.TaskGroups.Remove(taskGroup);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MyTasks.Models.TaskGroup>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My tasks";
 }
 
 <h2>Index</h2>
@@ -25,9 +25,9 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.ID}) |
-                @Html.ActionLink("Details", "Details", new {id = item.ID}) |
-                @Html.ActionLink("Delete", "Delete", new {id = item.ID})
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
             </td>
         </tr>
     }
@@ -49,22 +49,32 @@
     {
         <div id="@("group-" + group.ID)" class="col-md-4">
             <div class="row">
-                <h2>
-                    @group.Name
-                </h2>
+                <div class="col-md-8">
+                    <h2>
+                        @Html.ActionLink(@group.Name, "Details", new { id = group.ID }, new { @style = "color: black" })
+                    </h2>
+                </div>
+                <div class="col-md-4">
+                    <div class="container">
+                        @Html.ActionLink("X", "Delete", new { id = group.ID }, new { @class = "btn btn-danger", @style = "color:white" })
+                    </div>
+                </div>
             </div>
 
             @foreach (var task in group.Tasks)
             {
-                <div id="@("task-" + task.ID)" class="row">
+                <div id="@("task-" + task.ID)" class="row" style="padding-left: 15px; padding-bottom: 10px">
                     <button type="button" class="btn btn-danger btn-circle" onclick="gotoDeleteTaskPage(@task.ID)"><i class="glyphicon glyphicon-remove"></i></button>
                     <a href="@("/Tasks/Details?id=" + task.ID)">@task.Name</a>
                 </div>
             }
 
-            <button onclick="gotoAddTaskPage(@group.ID)">+ Add Task</button>
+            <button class="btn" onclick="gotoAddTaskPage(@group.ID)">+ Add Task</button>
         </div>
     }
+</div>
+<div class="row text-center" style="padding-top: 50px">
+    @Html.ActionLink("+ Add group", "Create", null, new { @class = "btn btn-primary" })
 </div>
 
 <link href="~/Content/Site.css" rel="stylesheet" />
