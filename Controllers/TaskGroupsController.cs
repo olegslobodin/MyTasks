@@ -18,8 +18,9 @@ namespace MyTasks.Controllers
         // GET: TaskGroups
         public ActionResult Index()
         {
-            var result = Json(db.TaskGroups.ToList(), JsonRequestBehavior.AllowGet);
-            return result;
+            //var result = Json(db.TaskGroups.ToList(), JsonRequestBehavior.AllowGet);
+            //return result;
+            return View(db.TaskGroups.ToList());
         }
 
         // GET: TaskGroups/Details/5

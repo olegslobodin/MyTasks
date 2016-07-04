@@ -9,6 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -32,3 +33,28 @@
     }
 
 </table>
+
+<div class="row">
+    @foreach (var group in Model)
+    {
+        <div id="@("group-" + group.ID)" class="col-md-4">
+            <div class="row">
+                <h2>
+                    @group.Name
+                </h2>
+            </div>
+
+            @foreach (var task in group.Tasks)
+            {
+                <div id="@("task-" + task.ID)" class="row">
+                    @task.Name
+                </div>
+            }
+
+            <form action="/Tasks/Create">
+                <input type="text" name="groupId" value="@group.ID" />
+                <button type="submit">+ Add Task</button>
+            </form>
+        </div>
+    }
+</div>
