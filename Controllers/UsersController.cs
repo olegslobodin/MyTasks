@@ -47,7 +47,7 @@ namespace MyTasks.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SecretKey,Name")] User user)
+        public ActionResult Create([Bind(Include = "SecretKey,Name,Password")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace MyTasks.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SecretKey,Name")] User user)
+        public ActionResult Edit([Bind(Include = "SecretKey,Name,Password")] User user)
         {
             if (ModelState.IsValid)
             {

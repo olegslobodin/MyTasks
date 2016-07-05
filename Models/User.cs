@@ -14,6 +14,9 @@ namespace MyTasks.Models
         [Required(ErrorMessage = "Didn't you have a name?!")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Don't forget about security")]
+        public string Password { get; set; }
+
         public virtual ICollection<Task> Tasks { get; set; }
     }
 }

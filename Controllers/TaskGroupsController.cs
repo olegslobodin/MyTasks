@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using MyTasks.DataAccess;
 using MyTasks.Models;
 using WebGrease.Css.Extensions;
+using RedirectResult = System.Web.Http.Results.RedirectResult;
 
 namespace MyTasks.Controllers
 {
+    [Authorize]
     public class TaskGroupsController : Controller
     {
         private Context db = new Context();
