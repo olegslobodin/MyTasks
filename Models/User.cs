@@ -10,7 +10,10 @@ namespace MyTasks.Models
     {
         [Key]
         public int SecretKey { get; set; }
+
+        [Required(ErrorMessage = "Didn't you have a name?!")]
         public string Name { get; set; }
+
         public virtual ICollection<Task> Tasks { get; set; }
     }
 }

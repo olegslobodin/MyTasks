@@ -114,7 +114,7 @@ namespace MyTasks.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TaskGroup taskGroup = db.TaskGroups.Find(id);
-            db.Tasks.RemoveRange(taskGroup.Tasks);
+            //db.Tasks.RemoveRange(taskGroup.Tasks);
             db.TaskGroups.Remove(taskGroup);
             db.SaveChanges();
             return RedirectToAction("Index");

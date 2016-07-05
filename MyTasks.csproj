@@ -173,6 +173,14 @@
     <Compile Include="Migrations\201607041206166_AddUserModel.Designer.cs">
       <DependentUpon>201607041206166_AddUserModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607051141373_RequiredAttributesAdded.cs" />
+    <Compile Include="Migrations\201607051141373_RequiredAttributesAdded.Designer.cs">
+      <DependentUpon>201607051141373_RequiredAttributesAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607051157335_RequiredUserNameAdded.cs" />
+    <Compile Include="Migrations\201607051157335_RequiredUserNameAdded.Designer.cs">
+      <DependentUpon>201607051157335_RequiredUserNameAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\TaskGroup.cs" />
@@ -245,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607041206166_AddUserModel.resx">
       <DependentUpon>201607041206166_AddUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607051141373_RequiredAttributesAdded.resx">
+      <DependentUpon>201607051141373_RequiredAttributesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607051157335_RequiredUserNameAdded.resx">
+      <DependentUpon>201607051157335_RequiredUserNameAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

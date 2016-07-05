@@ -18,11 +18,11 @@ namespace MyTasks.DataAccess
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<TaskGroup>()
+                .HasMany(a => a.Tasks)
+                .WithRequired()
+                .WillCascadeOnDelete(true);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            //modelBuilder.Entity<TaskGroup>()
-            //    .HasOptional(a => a.Tasks)
-            //    .WithOptionalDependent()
-            //    .WillCascadeOnDelete(true);
         }
     }
 }

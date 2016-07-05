@@ -93,3 +93,5 @@ C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\bin\zh
 C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\obj\Debug\MyTasks.Migrations.InitialCreate.resources
 C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\obj\Debug\MyTasks.csproj.GenerateResource.Cache
 C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\obj\Debug\MyTasks.Migrations.AddUserModel.resources
+C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\obj\Debug\MyTasks.Migrations.RequiredAttributesAdded.resources
+C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\obj\Debug\MyTasks.Migrations.RequiredUserNameAdded.resources
