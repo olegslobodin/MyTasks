@@ -113,3 +113,4 @@ C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\bin\Mi
 C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\obj\Debug\MyTasks.Migrations.UserUpdated.resources
+C:\Users\o.slobodin\documents\visual studio 2015\Projects\MyTasks\MyTasks\bin\ru\EntityFramework.resources.dll
