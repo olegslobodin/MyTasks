@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MyTasks.Models.Priority>
+
+@{
+    ViewBag.Title = "Tasks by priority";
+}
+
+<div class="row" style="padding-top: 50px">
+    @foreach (var priority in Model)
+    {
+        @Html.Partial("~/Views/Priorities/_Priority.cshtml", priority);
+    }
+</div>
+
+<div class="row text-center" style="padding-top: 50px">
+    @Html.ActionLink("+ Add priority", "Create", null, new {@class = "btn btn-primary"})
+</div>
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<script src="~/Scripts/myScript.js"></script>

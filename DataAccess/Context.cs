@@ -7,9 +7,9 @@ namespace MyTasks.DataAccess
     public class Context : DbContext
     {
 
-        public Context() : base("Context")
+        public Context() : base("MyTasks")
         {
-            Database.SetInitializer<Context>(null);
+            Database.SetInitializer<Context>(new CreateDatabaseIfNotExists<Context>());
         }
 
         public DbSet<TaskGroup> TaskGroups { get; set; }
@@ -24,5 +24,7 @@ namespace MyTasks.DataAccess
                 .WillCascadeOnDelete(true);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<MyTasks.Models.Priority> Priorities { get; set; }
     }
 }

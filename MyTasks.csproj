@@ -197,6 +197,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogOutController.cs" />
+    <Compile Include="Controllers\PrioritiesController.cs" />
     <Compile Include="Controllers\TaskGroupsController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -231,7 +232,20 @@
     <Compile Include="Migrations\201607051419375_UserUpdated.Designer.cs">
       <DependentUpon>201607051419375_UserUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607051553301_newConnectionString.cs" />
+    <Compile Include="Migrations\201607051553301_newConnectionString.Designer.cs">
+      <DependentUpon>201607051553301_newConnectionString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607051608326_newConnectionString1.cs" />
+    <Compile Include="Migrations\201607051608326_newConnectionString1.Designer.cs">
+      <DependentUpon>201607051608326_newConnectionString1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607061250107_PrioritiesAdded.cs" />
+    <Compile Include="Migrations\201607061250107_PrioritiesAdded.Designer.cs">
+      <DependentUpon>201607061250107_PrioritiesAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Priority.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\TaskGroup.cs" />
     <Compile Include="Models\User.cs" />
@@ -265,6 +279,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\myScript.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -277,7 +292,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -297,6 +314,12 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Priorities\Create.cshtml" />
+    <Content Include="Views\Priorities\Delete.cshtml" />
+    <Content Include="Views\Priorities\Details.cshtml" />
+    <Content Include="Views\Priorities\Edit.cshtml" />
+    <Content Include="Views\Priorities\Index.cshtml" />
+    <Content Include="Views\Priorities\_Priority.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -326,6 +349,15 @@
     <EmbeddedResource Include="Migrations\201607051419375_UserUpdated.resx">
       <DependentUpon>201607051419375_UserUpdated.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607051553301_newConnectionString.resx">
+      <DependentUpon>201607051553301_newConnectionString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607051608326_newConnectionString1.resx">
+      <DependentUpon>201607051608326_newConnectionString1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607061250107_PrioritiesAdded.resx">
+      <DependentUpon>201607061250107_PrioritiesAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -345,7 +377,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62563</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62563/</IISUrl>
+          <IISUrl>http://localhost:12345/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

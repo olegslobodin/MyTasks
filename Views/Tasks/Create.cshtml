@@ -1,11 +1,12 @@
-﻿@model MyTasks.Models.Task
+﻿@using MyTasks.Controllers
+@model MyTasks.Models.Task
 
 @{
     ViewBag.Title = "Create";
+    var priorities = (new PrioritiesController()).GetSortedPriorities().ConvertAll(p => new SelectListItem { Text = p.Title, Value = p.ID.ToString() });
 }
 
 <h2>Create for</h2>
-
 
 @using (Html.BeginForm("Create", "Tasks", new { groupId = @Request.Params["groupId"] }))
 {
@@ -28,6 +29,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PriorityId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.PriorityId, priorities)
+                @Html.ValidationMessageFor(model => model.PriorityId, "", new {@class = "text-danger"})
             </div>
         </div>
 

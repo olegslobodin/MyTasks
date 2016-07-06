@@ -1,0 +1,29 @@
+﻿@model MyTasks.Models.Priority
+
+<div id="@("priority-" + Model.ID)" class="col-md-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>
+                @Html.ActionLink(Model.Title, "Details", new {id = Model.ID}, new {@style = "color: black"})
+            </h2>
+        </div>
+        <div class="col-md-4">
+            <div class="container">
+                @Html.ActionLink("X", "Delete", new {id = Model.ID}, new {@class = "btn btn-danger", @style = "color:white"})
+            </div>
+        </div>
+    </div>
+
+    @foreach (var task in Model.Tasks)
+    {
+        <div id="@("task-" + task.ID)" class="row" style="padding-left: 15px; padding-bottom: 10px">
+            <div class="col-md-1">
+                <button type="button" class="btn btn-success btn-circle" onclick="changePriority(@task.ID, 'Up')"><i class="glyphicon glyphicon-chevron-up"></i></button>
+                <button type="button" class="btn btn-danger btn-circle" onclick="changePriority(@task.ID, 'Down')"><i class="glyphicon glyphicon-chevron-down"></i></button>
+            </div>
+            <div class="col-md-11">
+                <a href="@("/Tasks/Details?id=" + task.ID)">@task.Name</a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,7 +1,9 @@
-﻿@model MyTasks.Models.Task
+﻿@using MyTasks.Controllers
+@model MyTasks.Models.Task
 
 @{
     ViewBag.Title = "Details";
+    var priority = (new PrioritiesController()).GetPriorityById(Model.PriorityId);
 }
 
 <h2>Details</h2>
@@ -24,6 +26,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriorityId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => priority.Title)
         </dd>
 
     </dl>
