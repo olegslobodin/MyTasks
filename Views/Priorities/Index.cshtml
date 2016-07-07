@@ -7,14 +7,17 @@
 <div class="row" style="padding-top: 50px">
     @foreach (var priority in Model)
     {
-        @Html.Partial("~/Views/Priorities/_Priority.cshtml", priority);
+        <div id="@("partial-" + priority.ID)">
+            @Html.Partial("~/Views/Priorities/_Priority.cshtml", priority)
+        </div>
     }
 </div>
 
 <div class="row text-center" style="padding-top: 50px">
-    @Html.ActionLink("+ Add priority", "Create", null, new {@class = "btn btn-primary"})
+    @Html.ActionLink("+ Add priority", "Create", null, new { @class = "btn btn-primary" })
 </div>
 
 <link href="~/Content/Site.css" rel="stylesheet" />
 
 <script src="~/Scripts/myScript.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>

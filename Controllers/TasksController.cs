@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MyTasks.DataAccess;
 using MyTasks.Models;
+using System.IO;
 
 namespace MyTasks.Controllers
 {
@@ -60,33 +61,6 @@ namespace MyTasks.Controllers
             }
 
             return View(task);
-        }
-
-        public string ChangePriority(string taskId, string action)
-        {
-            int id = Int32.Parse(taskId);
-            var task = db.Tasks.First(t => t.ID == id);
-            var priorities = (new PrioritiesController()).GetSortedPriorities();
-            var pos = priorities.IndexOf(priorities.First(p => p.ID == task.PriorityId));
-            if (action == "Up")
-            {
-                if (pos + 1 < priorities.Count)
-                {
-                    task.PriorityId = priorities.ElementAt(pos + 1).ID;
-                    db.SaveChanges();
-                    return "ok";
-                }
-            }
-            else
-            {
-                if (pos > 0)
-                {
-                    task.PriorityId = priorities.ElementAt(pos - 1).ID;
-                    db.SaveChanges();
-                    return "ok";
-                }
-            }
-            return "bad";
         }
 
         // GET: Tasks/Edit/5

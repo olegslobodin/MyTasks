@@ -26,10 +26,35 @@ namespace MyTasks.Controllers
             return db.Priorities.First(p => p.ID == id);
         }
 
+        public ActionResult ChangeTaskPriority(int? id, string act)
+        {
+            var task = db.Tasks.First(t => t.ID == id);
+            var priorityController = new PrioritiesController();
+            var priorities = priorityController.GetSortedPriorities();
+            var pos = priorities.IndexOf(priorities.First(p => p.ID == task.PriorityId));
+            if (act == "Up")
+            {
+                if (pos + 1 < priorities.Count)
+                {
+                    task.PriorityId = priorities.ElementAt(pos + 1).ID;
+                    db.SaveChanges();
+                }
+            }
+            else
+            {
+                if (pos > 0)
+                {
+                    task.PriorityId = priorities.ElementAt(pos - 1).ID;
+                    db.SaveChanges();
+                }
+            }
+            return PartialView("~/Views/Priorities/_Priority.cshtml", priorityController.GetPriorityById(task.PriorityId));
+        }
+
         // GET: Priorities
         public ActionResult Index()
         {
-            return View(db.Priorities.OrderBy(p => p.PriorityLevel).ToList());
+            return View(GetSortedPriorities());
         }
 
         // GET: Priorities/Details/5

@@ -6,16 +6,19 @@
             action: action
         },
         function (data, status) {
-            if (data === "ok") {
-                var task = $('#task-' + taskId);
-                var priority = task.parent();
-                priority.remove(task.selector);
-
-                if (action === "Up") {
-                    priority.next().append(task);
-                } else {
-                    priority.prev().append(task);
-                }
-            }
+            $('#partial-' + data.fromId).html(data.fromPartial);
+            $('#partial-' + data.toId).html(data.toPartial);
         });
+}
+
+function removeTask(priorityId, taskId) {
+    $('#priority-' + priorityId + ' #task-' + taskId).remove();
+}
+
+function getNewPartialId(priorityId, action) {
+    var currentPartial = $('#priority-' + priorityId).parent();
+    if (action === 'Up')
+        return currentPartial.next().attr('id');
+    else
+        return currentPartial.prev().attr('id');
 }
